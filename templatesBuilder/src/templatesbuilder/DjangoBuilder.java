@@ -11,6 +11,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import static java.lang.Compiler.command;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -51,6 +53,7 @@ public class DjangoBuilder extends javax.swing.JFrame {
         txtDjangoStatus = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtDjangoProjectName = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         taConsole = new javax.swing.JTextArea();
@@ -92,6 +95,13 @@ public class DjangoBuilder extends javax.swing.JFrame {
 
         jLabel3.setText("Django Project Name");
 
+        jButton4.setText("Install Django UI");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -103,7 +113,10 @@ public class DjangoBuilder extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtDjangoProjectName, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton2)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(50, 50, 50)
+                        .addComponent(jButton4))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtInstallLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -144,7 +157,9 @@ public class DjangoBuilder extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(txtDjangoProjectName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton4))
                 .addGap(35, 35, 35))
         );
 
@@ -215,6 +230,65 @@ public class DjangoBuilder extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        if(!txtInstallLocation.getText().equals("")){
+            cop(txtInstallLocation.getText());
+            //System.out.println(System.getProperty("user.dir"));
+        }else{
+            JOptionPane.showMessageDialog(null, "Silahkan pilih lokasi installasi");
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+    private void copyFolder(File sourceFolder, File destinationFolder) throws IOException
+    {
+        //Check if sourceFolder is a directory or file
+        //If sourceFolder is file; then copy the file directly to new location
+        if (sourceFolder.isDirectory()) 
+        {
+            //Verify if destinationFolder is already present; If not then create it
+            if (!destinationFolder.exists()) 
+            {
+                destinationFolder.mkdir();
+                System.out.println("Directory created :: " + destinationFolder);
+            }
+             
+            //Get all files from source directory
+            String files[] = sourceFolder.list();
+             
+            //Iterate over all files and copy them to destinationFolder one by one
+            for (String file : files) 
+            {
+                File srcFile = new File(sourceFolder, file);
+                File destFile = new File(destinationFolder, file);
+                 
+                //Recursive function call
+                copyFolder(srcFile, destFile);
+            }
+        }
+        else
+        {
+            //Copy the file content from one place to another 
+            Files.copy(sourceFolder.toPath(), destinationFolder.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("File copied :: " + destinationFolder);
+        }
+    }
+
+    private void cop(String pt){
+        File sourceFolder = new File(System.getProperty("user.dir")+"/djangoui/");
+         
+        //Target directory where files should be copied
+        File destinationFolder = new File(pt);
+ 
+        try {
+            //Call Copy function
+            copyFolder(sourceFolder ,destinationFolder);
+            JOptionPane.showMessageDialog(null, "done");
+            taConsole.setText("Install Complete");
+        } catch (IOException ex) {
+            Logger.getLogger(Builder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     private void generateUbuntu(){
         if(!txtInstallLocation.equals("") && !txtDjangoProjectName.getText().equals("")){
             String[] cmd = { "/bin/sh", "-c", "cd "+txtInstallLocation.getText()+"; django-admin startproject "+txtDjangoProjectName.getText() };
@@ -342,6 +416,7 @@ public class DjangoBuilder extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
