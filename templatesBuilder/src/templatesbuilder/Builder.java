@@ -87,6 +87,12 @@ public class Builder extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        txtFolderGenerate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtFolderGenerateKeyPressed(evt);
+            }
+        });
+
         jButton1.setText("browse");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -417,6 +423,10 @@ public class Builder extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void txtFolderGenerateKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFolderGenerateKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFolderGenerateKeyPressed
     private void btActionPerformed(java.awt.event.ActionEvent evt){
         for(int y=0;y<Integer.parseInt(txtDesktopMenu.getText());y++){
             System.out.println(_name[y].getText());

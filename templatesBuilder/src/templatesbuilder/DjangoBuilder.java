@@ -278,7 +278,7 @@ public class DjangoBuilder extends javax.swing.JFrame {
         File sourceFolder = new File(System.getProperty("user.dir")+"/djangoui/");
          
         //Target directory where files should be copied
-        File destinationFolder = new File(pt);
+        File destinationFolder = new File(pt+"/"+txtDjangoProjectName.getText());
  
         try {
             //Call Copy function

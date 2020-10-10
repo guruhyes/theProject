@@ -1,0 +1,108 @@
+{% extends 'base/base.html' %}
+{% block Head %}
+<style>
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-size: 100px;
+}
+
+/* Style the active class, and buttons on mouse-over */
+.active, .btn:hover {
+  background-color: #666;
+  color: white;
+}
+</style>
+{% endblock Head %}
+
+{% block Content %}
+  
+<div id="myDIV">
+  <a href="https://www.google.com" target="_blank" class="btn" id="1">1</a>
+  <a href="https://www.google.com" target="_blank" class="btn" id="2">2</a>
+  <a href="https://www.google.com" target="_blank" class="btn" id="3">3</a>
+  <a href="https://www.google.com" target="_blank" class="btn" id="4">4</a>
+  <a href="https://www.google.com" target="_blank" class="btn" id="5">5</a>
+</div>
+    <script>
+        var j =0;
+        var header = document.getElementById("myDIV");
+        var btns = header.getElementsByClassName("btn");
+        $(document).jkey('a,d',function(key){
+            //console.log(j++);
+            
+                    
+            
+                if(key == "d"){
+                    var k=j;
+                    console.log(btns[k].href);
+                    if(k>=btns.length){
+                        console.log("nope");
+                    }else{
+                        try{
+                            var current = document.getElementsByClassName("active");
+                            current[0].className = current[0].className.replace(" active", "");
+                            btns[k].className += " active";
+                            console.log(k);
+                            j++;
+                        }catch(err){
+                            if(err.message=="current[0] is undefined"){
+                                btns[k].className += " active";
+                                console.log(k);
+                                j++;
+                            }else{
+
+                                var current = document.getElementsByClassName("active");
+                                current[0].className = current[0].className.replace(" active", "");
+                                btns[k].className += " active";
+                                console.log(k);
+                                j++;
+                            }
+                        }
+                    }
+                }else if(key == "a"){
+                    
+                    var l = j-2;
+                    if(l<0){
+                        console.log("nope");
+                    }else{
+
+                        console.log(l);
+                        try{
+                            var current = document.getElementsByClassName("active");
+                            current[0].className = current[0].className.replace(" active", "");
+                            btns[l].className += " active";
+                            //console.log(l);
+                            j--;
+                        }catch(err){
+                            if(err.message=="current[0] is undefined"){
+                                btns[l].className += " active";
+                                //console.log(l);
+                                j--;
+                            }else{
+
+                                var current = document.getElementsByClassName("active");
+                                current[0].className = current[0].className.replace(" active", "");
+                                btns[l].className += " active";
+                                //console.log(l);
+                                j--;
+                            }
+                        }
+                    }
+                }
+            
+            
+        });
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function() {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+    </script>
+{% endblock Content %}

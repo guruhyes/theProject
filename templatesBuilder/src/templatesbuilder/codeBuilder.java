@@ -6,7 +6,12 @@
 package templatesbuilder;
 
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import javax.swing.JCheckBox;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
@@ -29,9 +34,41 @@ public class codeBuilder extends javax.swing.JFrame {
     JTextField txtWidth = new JTextField("400px");
     JLabel lblHeight = new JLabel("Height");
     JTextField txtHeight = new JTextField("200px");
+    JCheckBox cbButton = new JCheckBox("button");
+    JCheckBox cbToolbar = new JCheckBox("Toolbars");
+    JTextField txtJmlButtonDialog = new JTextField();
+    JTextField txtJmlToolbarDialog = new JTextField();
+    JLabel lblButtonDialog = new JLabel("Button");
+    JTextField[] txtButtonDialog = new JTextField[1];
+    JLabel lblToolbarDialog = new JLabel("Toolbar");
+    JTextField[] txtToolbarDialog = new JTextField[1];
+    JPanel jpan = new JPanel();
+    JPanel jpan1 = new JPanel();
 
     public codeBuilder() {
         initComponents();
+        cbButton.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                selectedCbButtonn(evt);
+            }
+        });
+        txtJmlButtonDialog.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                onEnterJmlButtonDialog(evt);
+            }
+        });
+        cbToolbar.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                selectedCbToolbar(evt);
+            }
+        });
+        txtJmlToolbarDialog.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                onEnterJmlToolbarDialog(evt);
+            }
+        });
     }
 
     /**
@@ -45,9 +82,11 @@ public class codeBuilder extends javax.swing.JFrame {
 
         dlgCodeParameter = new javax.swing.JDialog();
         jButton1 = new javax.swing.JButton();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         taCode = new javax.swing.JTextArea();
         jBasicDialog = new javax.swing.JRadioButton();
+        jBDToolButt = new javax.swing.JRadioButton();
 
         dlgCodeParameter.getContentPane().setLayout(new java.awt.FlowLayout());
 
@@ -65,10 +104,19 @@ public class codeBuilder extends javax.swing.JFrame {
         taCode.setRows(5);
         jScrollPane1.setViewportView(taCode);
 
+        buttonGroup1.add(jBasicDialog);
         jBasicDialog.setText("Basic Dialog");
         jBasicDialog.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBasicDialogActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jBDToolButt);
+        jBDToolButt.setText("ToolBars And Buttons");
+        jBDToolButt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBDToolButtActionPerformed(evt);
             }
         });
 
@@ -80,13 +128,17 @@ public class codeBuilder extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jBasicDialog)
+                .addGap(18, 18, 18)
+                .addComponent(jBDToolButt)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jBasicDialog)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBasicDialog)
+                    .addComponent(jBDToolButt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -126,9 +178,142 @@ public class codeBuilder extends javax.swing.JFrame {
                     + "</div>";
             taCode.setText(code);
             dlgCodeParameter.dispose();
+        }else if(jBDToolButt.isSelected()){
+            code = "<div id=\""+txtId.getText()+"\" class=\"easyui-dialog\" title=\""+txtTitle.getText()+"\" style=\"width:"+txtWidth.getText()+";height:"+txtHeight+";padding:10px\"\n" +
+"            data-options=\"\n" +
+"                iconCls: 'icon-save',\n" +
+"                toolbar: [{\n" +
+"                    text:'Add',\n" +
+"                    iconCls:'icon-add',\n" +
+"                    handler:function(){\n" +
+"                        alert('add')\n" +
+"                    }\n" +
+"                },'-',{\n" +
+"                    text:'Save',\n" +
+"                    iconCls:'icon-save',\n" +
+"                    handler:function(){\n" +
+"                        alert('save')\n" +
+"                    }\n" +
+"                }],\n" +
+"                buttons: [{\n" +
+"                    text:'Ok',\n" +
+"                    iconCls:'icon-ok',\n" +
+"                    handler:function(){\n" +
+"                        alert('ok');\n" +
+"                    }\n" +
+"                },{\n" +
+"                    text:'Cancel',\n" +
+"                    handler:function(){\n" +
+"                        alert('cancel');;\n" +
+"                    }\n" +
+"                }]\n" +
+"            \">\n" +
+"        The dialog content.\n" +
+"    </div>";
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jBDToolButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDToolButtActionPerformed
+        // TODO add your handling code here:
+        if(jBDToolButt.isSelected()){
+            dlgCodeParameter.add(lblId);
+            txtId.setPreferredSize(new Dimension(150, 30));
+            dlgCodeParameter.add(txtId);
+            dlgCodeParameter.add(lblTitle);
+            txtTitle.setPreferredSize(new Dimension(150, 30));
+            dlgCodeParameter.add(txtTitle);
+            dlgCodeParameter.add(lblDataOptions);
+            txtDataOptions.setPreferredSize(new Dimension(150, 30));
+            dlgCodeParameter.add(txtDataOptions);
+            dlgCodeParameter.add(lblHeight);
+            txtHeight.setPreferredSize(new Dimension(150, 30));
+            dlgCodeParameter.add(txtHeight);
+            dlgCodeParameter.add(txtWidth);
+            txtWidth.setPreferredSize(new Dimension(150, 30));
+            dlgCodeParameter.add(txtWidth);
+            dlgCodeParameter.add(cbButton);
+            txtJmlButtonDialog.setPreferredSize(new Dimension(70, 30));
+            txtJmlButtonDialog.setVisible(false);
+            dlgCodeParameter.add(txtJmlButtonDialog);
+            dlgCodeParameter.add(cbToolbar);
+            txtJmlToolbarDialog.setPreferredSize(new Dimension(70, 30));
+            txtJmlToolbarDialog.setVisible(false);
+            dlgCodeParameter.add(txtJmlToolbarDialog);
+            dlgCodeParameter.setSize(700, 400);
+            dlgCodeParameter.setVisible(true);
+        }
+    }//GEN-LAST:event_jBDToolButtActionPerformed
+
+    private void selectedCbButtonn(java.awt.event.ActionEvent evt){
+        if(cbButton.isSelected()){
+            txtJmlButtonDialog.setVisible(true);
+            dlgCodeParameter.revalidate();
+            dlgCodeParameter.repaint();
+        }else{
+            txtJmlButtonDialog.setVisible(false);
+            dlgCodeParameter.remove(jpan);
+            dlgCodeParameter.revalidate();
+            dlgCodeParameter.repaint();
+        }
+    }
+    private void selectedCbToolbar(java.awt.event.ActionEvent evt){
+        if(cbToolbar.isSelected()){
+            txtJmlToolbarDialog.setVisible(true);
+            dlgCodeParameter.revalidate();
+            dlgCodeParameter.repaint();
+        }else{
+            txtJmlToolbarDialog.setVisible(false);
+            dlgCodeParameter.remove(jpan1);
+            dlgCodeParameter.revalidate();
+            dlgCodeParameter.repaint();
+        }
+    }
+    private void onEnterJmlToolbarDialog(java.awt.event.KeyEvent evt){
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            txtToolbarDialog = new JTextField[Integer.parseInt(txtJmlToolbarDialog.getText())];
+            jpan1.removeAll();
+            for(int i=0;i<Integer.parseInt(txtJmlToolbarDialog.getText());i++){
+                lblToolbarDialog = new JLabel("Toolbar");
+                //JPanel jpan = new JPanel();
+                jpan1.setLayout(new FlowLayout());
+                jpan1.setPreferredSize(new Dimension(dlgCodeParameter.getWidth(),50));
+                txtToolbarDialog[i] = new JTextField();
+                txtToolbarDialog[i].setPreferredSize(new Dimension(150, 40));
+                dlgCodeParameter.add(jpan1);
+                jpan1.add(lblToolbarDialog);
+                jpan1.add(txtToolbarDialog[i]);
+                jpan1.revalidate();
+                jpan1.repaint();  
+            }
+            
+            
+            dlgCodeParameter.revalidate();
+            dlgCodeParameter.repaint();
+        }
+    }
+    private void onEnterJmlButtonDialog(java.awt.event.KeyEvent evt){
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            txtButtonDialog = new JTextField[Integer.parseInt(txtJmlButtonDialog.getText())];
+            jpan.removeAll();
+            for(int i=0;i<Integer.parseInt(txtJmlButtonDialog.getText());i++){
+                lblButtonDialog = new JLabel("Button");
+                //JPanel jpan = new JPanel();
+                jpan.setLayout(new FlowLayout());
+                jpan.setPreferredSize(new Dimension(dlgCodeParameter.getWidth(),50));
+                txtButtonDialog[i] = new JTextField();
+                txtButtonDialog[i].setPreferredSize(new Dimension(150, 40));
+                dlgCodeParameter.add(jpan);
+                jpan.add(lblButtonDialog);
+                jpan.add(txtButtonDialog[i]);
+                jpan.revalidate();
+                jpan.repaint();  
+            }
+            
+            
+            dlgCodeParameter.revalidate();
+            dlgCodeParameter.repaint();
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -165,7 +350,9 @@ public class codeBuilder extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JDialog dlgCodeParameter;
+    private javax.swing.JRadioButton jBDToolButt;
     private javax.swing.JRadioButton jBasicDialog;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
