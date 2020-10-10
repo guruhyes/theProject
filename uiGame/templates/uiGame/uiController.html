@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+
+{% block Content %}
+Press button on controller to connect.
+<div id="axes" style="display: flex; flex-direction: column;"></div>
+    <script>
+        window.addEventListener('gamepadconnected', (event) => {
+        const update = () => {
+            const output = document.getElementById('axes');
+            output.innerHTML = ''; // clear the output
+
+            for (const gamepad of navigator.getGamepads()) {
+                if (!gamepad) continue;
+                console.log(gamepad.axes);
+                /*
+                for (const [index, axis] of gamepad.axes.entries()) {
+                    //console.log(index);
+                    output.insertAdjacentHTML('beforeend',
+                    `<label>${gamepad.index}, ${index}
+                        <progress value=${axis * 0.5 + 0.5}></progress>
+                    </label>`);
+                }
+                */
+            }
+            requestAnimationFrame(update);
+        };
+        update();
+        });
+    </script>
+{% endblock %}

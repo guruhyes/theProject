@@ -32,6 +32,11 @@
         var j =0;
         var header = document.getElementById("myDIV");
         var btns = header.getElementsByClassName("btn");
+	    window.addEventListener("gamepadconnected", function(e) {
+            console.log("Gamepad connected at index %d: %s. %d buttons, %d axes.",
+            e.gamepad.index, e.gamepad.id,
+            e.gamepad.buttons.length, e.gamepad.axes.length);
+        });
         $(document).jkey('a,d',function(key){
             //console.log(j++);
             

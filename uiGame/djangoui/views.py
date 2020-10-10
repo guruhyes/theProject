@@ -6,3 +6,5 @@ def index(request):
     return render(request,'base/desktop.html')
 def uiGame(request):
     return render(request,'uiGame/ui.html')
+def uiController(request):
+    return render(request,'uiGame/uiController.html')

@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index),
     path('ui/',views.uiGame),
+    path('uiController',views.uiController),
 ]
