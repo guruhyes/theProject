@@ -28,14 +28,99 @@
   <a href="https://www.google.com" target="_blank" class="btn" id="4">4</a>
   <a href="https://www.google.com" target="_blank" class="btn" id="5">5</a>
 </div>
+
     <script>
         var j =0;
         var header = document.getElementById("myDIV");
         var btns = header.getElementsByClassName("btn");
-	    window.addEventListener("gamepadconnected", function(e) {
-            console.log("Gamepad connected at index %d: %s. %d buttons, %d axes.",
-            e.gamepad.index, e.gamepad.id,
-            e.gamepad.buttons.length, e.gamepad.axes.length);
+        window.addEventListener('gamepadconnected', (event) => {
+        const update = () => {
+            
+            for (const gamepad of navigator.getGamepads()) {
+                if (!gamepad) continue;
+                //console.log(gamepad.axes);
+                
+                for (const [index, axis] of gamepad.axes.entries()) {
+                    //console.log(index);
+
+                    if((index == 0 || index==5) && gamepad.index == 0){
+                        if(axis > 0 && axis < 0.9999){
+                            var k=j;
+                            console.log(axis);
+                            if(k>btns.length-1){
+                                console.log("nope");
+                            }else{
+                                try{
+                                    var current = document.getElementsByClassName("active");
+                                    current[0].className = current[0].className.replace(" active", "");
+                                    btns[k].className += " active";
+                                    console.log(k);
+                                    j++;
+                                }catch(err){
+                                    if(err.message=="current[0] is undefined"){
+                                        btns[k].className += " active";
+                                        console.log(k);
+                                        j++;
+                                    }else{
+
+                                        var current = document.getElementsByClassName("active");
+                                        current[0].className = current[0].className.replace(" active", "");
+                                        btns[k].className += " active";
+                                        console.log(k);
+                                        j++;
+                                    }
+                                }
+                            }
+                        }else if(axis < 0 && axis>-0.9999){
+                            
+                            var l = j-2;
+                            if(l<0){
+                                console.log("nope");
+                            }else{
+
+                                console.log(l);
+                                try{
+                                    var current = document.getElementsByClassName("active");
+                                    current[0].className = current[0].className.replace(" active", "");
+                                    btns[l].className += " active";
+                                    //console.log(l);
+                                    j--;
+                                }catch(err){
+                                    if(err.message=="current[0] is undefined"){
+                                        btns[l].className += " active";
+                                        //console.log(l);
+                                        j--;
+                                    }else{
+
+                                        var current = document.getElementsByClassName("active");
+                                        current[0].className = current[0].className.replace(" active", "");
+                                        btns[l].className += " active";
+                                        //console.log(l);
+                                        j--;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                for (const [index, button] of gamepad.buttons.entries()) {
+                    if(gamepad.index==0 && index==2 && button.value==1){
+                        //console.log(j);
+                        window.open(btns[j-1].href);
+                        return;
+                        
+                    }
+                    
+                }
+                
+            }
+            //setTimeout(function(){ requestAnimationFrame(update);console.log("delay 10 sec")}, 10000);
+            requestAnimationFrame(update);
+            //setInterval(function(){ requestAnimationFrame(update);console.log("delay 10 sec ") }, 10000);
+        };
+            //setInterval(function(){ update();console.log("delay 10 sec") }, 10000);
+            update();
         });
         $(document).jkey('a,d',function(key){
             //console.log(j++);
