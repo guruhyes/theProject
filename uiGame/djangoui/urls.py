@@ -21,4 +21,7 @@ urlpatterns = [
     path('',views.index),
     path('ui/',views.uiGame),
     path('uiController',views.uiController),
+    path('uiBat',views.uiBat),
+    path('directCall',views.directCall),
+    path('createFile',views.createFile),
 ]

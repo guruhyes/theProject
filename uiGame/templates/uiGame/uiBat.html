@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+
+{% block Content %}
+    <a  href="#" onClick="test()">href<a>
+
+    <script>
+        function test(){
+            console.log('here');
+            window.open('file:\\\C:\\Users\\bw\\AppData\\Local\\Programs\\Python\\Python38-32\\Game\\basic_movement.py');
+
+            
+            //WshShell = new ActiveXObject("WScript.Shell");
+            //WshShell.Run("explorer file:///D:\\temp\\1.bat",1,true);
+        }
+    </script>
+{% endblock Content %}
