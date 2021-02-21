@@ -1,0 +1,73 @@
+<table id="dgPoliklinik" title="Poliklinik" class="easyui-datagrid" style="width:700px;height:250px"
+        url="{% url 'dgPoliklinik' %}"
+        toolbar="#tPoliklinik" pagination="true"
+        rownumbers="true" fitColumns="true" singleSelect="true">
+    <thead>
+        <tr>
+            <th field="kd_poli" width="50">kd poli</th>
+            <th field="nm_poli" width="50">nm poli</th>
+            <th field="registrasi" width="50">registrasi</th>
+            <th field="registrasilama" width="50">registrasilama</th>
+            <th field="status" width="50">status</th>
+        </tr>
+    </thead>
+</table>
+<div id="tPoliklinik">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addPoliklinik()">Tambah Poliklinik</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editPoliklinik()">Edit Poliklinik</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="hapusPoliklinik()">Hapus Poliklinik</a><br>
+    <input class="easyui-textbox" label="kd poli" labelPosition="left" data-options="prompt:'kd poli'" id="cKd_poli" name="cKd_poli" style="width:200px;">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-search" plain="true" onclick="cariPoliklinik()">Cari</a>
+</div>
+
+<script>
+    var url;
+    function addPoliklinik(){
+        url = '{% url 'simpanPoliklinik' %}';
+        $('#dlPoliklinik').dialog('open').dialog('setTitle','Add');
+        $('#kd_poli').textbox('readonly',false);
+        $('#fPoliklinik').form('clear');
+    }
+    function cariPoliklinik(){
+        $('#dgPoliklinik').datagrid('load',{
+            cKd_poli:$('#cKd_poli').val(),
+        })
+    }
+    function editPoliklinik(){
+        var row = $('#dgPoliklinik').datagrid('getSelected');
+        url = '{% url 'simpanPoliklinik' %}'+row.kd_poli;
+        if(row){
+            $('#dlPoliklinik').dialog('open').dialog('setTitle','Edit Poliklinik');
+            $('#kd_poli').textbox('readonly');
+            $('#fPoliklinik').form('load',row);
+        }else{
+            alert('Tidak ada Terpilih');
+        }
+    }
+    function hapusPoliklinik(){
+        var row = $('#dgPoliklinik').datagrid('getSelected');
+        if(row){
+            $.messager.confirm('Confirm','Yakin mau di Hapus',function(r){
+                if (r){
+                   $.post('{% url 'deletePoliklinik' %}',{kd_poli:row.kd_poli},function(result){
+                       if(result.errorMsg){
+                           $.messager.show({
+                               title: 'Error',
+                               msg: resut.errorMsg
+                           });
+                       }else{
+                           $('#dgPoliklinik').datagrid('reload');
+                           $.messager.show({
+                               title: 'success',
+                               msg: result.success
+                           });
+                       }
+                   },'json'); 
+                }
+            });
+        }else{
+            alert('tidak ada data terpilih');
+        }
+    }
+
+</script>

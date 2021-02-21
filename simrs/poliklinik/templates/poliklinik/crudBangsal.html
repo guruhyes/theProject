@@ -1,0 +1,72 @@
+<table id="dgBangsal" title="Bangsal" class="easyui-datagrid" style="width:700px;height:250px"
+        url="{% url 'dgBangsal' %}"
+        toolbar="#tBangsal" pagination="true"
+        rownumbers="true" fitColumns="true" singleSelect="true">
+    <thead>
+        <tr>
+            <th field="kd_bangsal" width="50">Kode Bangsal</th>
+            <th field="nm_bangsal" width="50">Nama Bangsa</th>
+            <th field="status" width="50">status</th>
+        </tr>
+    </thead>
+</table>
+<div id="tBangsal">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addBangsal()">Tambah</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editBangsal()">Edit</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="hapusBangsal()">Hapus</a><br>
+    <input class="easyui-textbox" label="kd bangsal" labelPosition="left" data-options="prompt:'kd bangsal'" id="cKd_bangsal" name="cKd_bangsal" style="width:200px;">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-search" plain="true" onclick="cariBangsal()">caari</a>
+</div>
+
+<script>
+    var url;
+    function addBangsal(){
+        url = '{% url 'simpanBangsal' %}';
+        $('#dlBangsal').dialog('open').dialog('setTitle','Tambah Bangsal');
+        $('#kd_bangsal').textbox('readonly',false);
+        $('#fBangsal').form('clear');
+    }
+    function cariBangsal(){
+        $('#dgBangsal').datagrid('load',{
+            cKd_bangsal:$('#cKd_bangsal').val(),
+        })
+    }
+    function editBangsal(){
+        var row = $('#dgBangsal').datagrid('getSelected');
+        url = '{% url 'simpanBangsal' %}'+row.kd_bangsal;
+        if(row){
+            $('#dlBangsal').dialog('open').dialog('setTitle','Edit Bangsal');
+            $('#kd_bangsal').textbox('readonly');
+            $('#fBangsal').form('load',row);
+        }else{
+            alert('Tidak ada data terpilih');
+        }
+    }
+    function hapusBangsal(){
+        var row = $('#dgBangsal').datagrid('getSelected');
+        if(row){
+
+            $.messager.confirm('Confirm','Yakin Mau menghapus Bangsal?',function(r){
+                if (r){
+                    $.post('{% url 'hapusBangsal' %}',{kd_bangsal:row.kd_bangsal},function(result){
+                        if(result.errorMsg){
+                            $.messager.show({
+                                title: 'Error',
+                                msg: resut.errorMsg
+                            });
+                        }else{
+                            $.messager.show({
+                                title: 'success',
+                                msg: result.success
+                            });
+                            $('#dgBangsal').datagrid('reload');
+                        }
+                        
+                    },'json');
+                }
+            });
+        }else{
+            alert('Tidak Ada data terpilih');
+        }
+    }
+</script>

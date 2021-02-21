@@ -1,0 +1,13 @@
+<div id="dlBangsal" class="easyui-dialog" buttons="#btBangsal" title="Bangsal" style="width:400px;height:200px;"
+        data-options="resizable:true,modal:true,closed:true">
+     {% include 'poliklinik/formBangsal.html' %}
+</div>
+<div id="btBangsal">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-save" plain="true" onclick="simpanBangsal()">Simpan</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" plain="true" onclick="$('#dlBangsal').dialog('close')">Cancel</a>
+</div>
+<script>
+    function simpanBangsal(){
+        saveData('fBangsal',url,'Bangsal','dgBangsal','dlBangsal');
+    }
+</script>

@@ -1,0 +1,13 @@
+<div id="dlRekening" class="easyui-dialog" buttons="#btRekening" title="judul" style="width:500px;height:400px;"
+        data-options="resizable:true,modal:true,closed:true">
+    {% include 'rekening/form.html' %}
+</div>
+<div id="btRekening">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="simpanRekening()">Simpan</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" plain="true" onclick="$('#dlRekening').dialog('close')">Cancel</a>
+</div>
+<script>
+    function simpanRekening(){
+        saveData('fRekening',url,'Rekening','dgRekening','dlRekening');
+    }
+</script>

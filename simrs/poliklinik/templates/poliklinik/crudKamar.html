@@ -1,0 +1,77 @@
+<table id="dgKamar" title="Kamar" class="easyui-datagrid" style="width:700px;height:250px"
+        url="{% url 'dgKamar' %}"
+        toolbar="#tKamar" pagination="true"
+        rownumbers="true" fitColumns="true" singleSelect="true">
+    <thead>
+        <tr>
+            <th field="kd_kamar" width="50">kode Kamar</th>
+            <th field="nm_bangsal" width="50">Bangsal</th>
+            <th field="trf_kamar" width="50">tarif</th>
+            <th field="status" width="50">status</th>
+        </tr>
+    </thead>
+</table>
+<div id="tKamar">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addKamar()">Tambah</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editKamar()">Edit</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="hapusKamar()">Hapus</a><br>
+    <input class="easyui-textbox" label="bangsal" labelPosition="left" data-options="prompt:'bangsal'" id="cNm_bangsal" name="cNm_bangsal" style="width:200px;">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-search" plain="true" onclick="cariKamar()">Cari</a>
+
+</div>
+<script>
+    function addKamar(){
+        url = '{% url 'simpanKamar' %}';
+        $('#dlKamar').dialog('open').dialog('setTitle','Tambah Kamar');
+        $('#no_kamar').textbox('readonly');
+        $('#fKamar').form('clear');
+    }
+    function cariKamar(){
+        $('#dgKamar').datagrid('load',{
+            cNm_kamar:$('#cNma_kamar').val(),
+        })
+    }
+    function editKamar(){
+        var row = $('#dgKamar').datagrid('getSelected');
+        url = '{% url 'simpanKamar' %}'+row.kd_kamar;
+        var kd = row.kd_kamar.split(".");
+        console.log(row.kd_bangsal);
+        if(row){
+            $('#dlKamar').dialog('open').dialog('setTitle','Edit Kamar');
+            $('#no_kamar').textbox('readonly');
+            $('#fKamar').form('load',{
+                'kd_kamar':kd[0],
+                'kd_bangsal':row.kd_bangsal_id,
+                'trf_kamar':row.trf_kamar,
+                'status':row.status,
+                'kelas':row.kelas,
+                'statusdata':row.statusdata,
+                'no_kamar':kd[1]
+            });
+        }else{
+            alert('Tidak Ada data Terpilih');
+        }
+    }
+    function hapusKamar(){
+        var row = $('#dgKamar').datagrid('getSelected');
+        if(row){
+
+            $.messager.confirm('Confirm','Yakin ingin menghapus?',function(r){
+                if (r){
+                    $.post('{% url 'deleteKamar' %}',{kd_kamar:row.kd_kamar},function(result){
+                        if(result.errorMsg){
+                            $.messager.show({
+                                title: 'Eror',
+                                msg: result.errorMsg
+                            });
+                        }else{
+                            $('#dgKamar').datagrid('reload');
+                        }
+                    },'json');
+                }
+            });
+        }else{
+            alert('tidak ada terpilih');
+        }
+    }
+</script>

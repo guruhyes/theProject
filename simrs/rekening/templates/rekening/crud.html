@@ -1,0 +1,68 @@
+<table id="dgRekening" title="Rekening" class="easyui-datagrid" style="width:700px;height:250px"
+        url="{% url 'dgRekening' %}"
+        toolbar="#tRekening" pagination="true"
+        rownumbers="true" fitColumns="true" singleSelect="true">
+    <thead>
+        <tr>
+            <th field="kd_rek" width="50">kode </th>
+            <th field="nm_rek" width="50">nama</th>
+            <th field="tipe" width="50">tipe</th>
+            <th field="balance" width="50">balance</th>
+            <th field="level" width="50">level</th>
+        </tr>
+    </thead>
+</table>
+<div id="tRekening">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addRekening()">Tambah</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editRekening()">Edit</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="hapusRekening()">Hapus</a><br>
+    <input class="easyui-textbox" label="kode rek" labelPosition="left" data-options="prompt:'kode'" id="cKd_rek" name="cKd_rek" style="width:200px;">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-search" plain="true" onclick="cariRekening()">Cari</a>
+
+</div>
+<script>
+    var url;
+    function addRekening(){
+        url = '{% url 'simpanRekening' %}';
+        $('#dlRekening').dialog('open').dialog('setTitle','Add');
+        $('#kd_rek').textbox('readonly',false);
+        $('#fRekening').form('clear');
+    }
+    function cariRekening(){
+        $('#dgRekening').datagrid('load',{
+            cKd_rek:$('#cKd_rek').val(),
+        })
+    }
+    function editRekening(){
+        var row = $('#dgRekening').datagrid('getSelected');
+        url = '{% url 'simpanRekening' %}'+row.kd_rek;
+        if(row){
+            $('#dlRekening').dialog('open').dialog('setTitle','Edit');
+            $('#kd_rek').textbox('readonly');
+            $('#fRekening').form('load',row);
+        }else{
+            alert('Tidak ada Data Terpilih');
+        }
+    }
+    function hapusRekening(){
+        var row = $('#dgRekening').datagrid('getSelected');
+        if (row){
+            $.messager.confirm('Confirm','Are you sure you want to destroy this user?',function(r){
+                if (r){
+                    $.post('{% url 'deleteRekening' %}',{id:row.kd_rek},function(result){
+                        if (result.success){
+                            $('#dgRekening').datagrid('reload');    // reload the user data
+                        } else {
+                            $.messager.show({    // show error message
+                                title: 'Error',
+                                msg: result.errorMsg
+                            });
+                        }
+                    },'json');
+                }
+            });
+        }
+    }
+</script>
+
+    

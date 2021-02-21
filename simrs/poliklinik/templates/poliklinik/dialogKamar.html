@@ -1,0 +1,27 @@
+<div id="dlKamar" class="easyui-dialog" buttons="#btKamar" title="Kamar" style="width:400px;height:400px;"
+        data-options="resizable:true,modal:true,closed:true">
+        {% include 'poliklinik/formKamar.html' %}
+</div>
+<div id="btKamar">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-save" plain="true" onclick="simpanKamar()">Simpan</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" plain="true" onclick="$('#dlKamar').dialog('close')">Cancel</a>
+</div>
+
+<script>
+    function simpanKamar(){
+        saveData('fKamar',url,'Kamar','dgKamar','dlKamar')
+    }
+    $('#kd_bangsal').combobox({
+        onSelect: function(rec){
+            $('#kd_kamar').textbox('setValue',rec.kd_bangsal);
+            $.get("{% url 'bedTerakhir' %}"+rec.kd_bangsal, function(data){
+                if(data=="None"){
+                    $('#no_kamar').textbox('setValue',1);
+                }else{
+                    $('#no_kamar').textbox('setValue',parseInt(data)+1);
+                }
+                
+            });
+        }
+    })
+</script>

@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+
+{% block Content %}
+
+    <table id="crudAgama" title="Modeul Agama" class="easyui-datagrid" style="width:700px;height:250px"
+        url="get.php"
+        toolbar="#toolbarAgama" pagination="true"
+        rownumbers="true" fitColumns="true" singleSelect="true">
+        <thead>
+            <tr>
+                <th field="kode_agama" width="50">kode</th>
+                <th field="agama" width="50">agama</th>
+            </tr>
+        </thead>
+    </table>
+    <div id="toolbarAgama">
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="simpanAgama()">simpan</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editAgama()">Edit</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="deleteAgama()">Delete</a>
+    </div>
+{% endblock  %}

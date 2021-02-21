@@ -1,0 +1,13 @@
+<div id="dlPoliklinik" class="easyui-dialog" buttons="#btPoliklinik" title="Poliklinik" style="width:500px;height:400px;"
+        data-options="resizable:true,modal:true,closed:true">
+    {% include 'poliklinik/formPoliklinik.html' %}
+</div>
+<div id="btPoliklinik">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-save" plain="true" onclick="simpanPoliklinik()">Simpan</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" plain="true" onclick="$('#dlPoliklinik').dialog('close')">Cancel</a>
+</div>
+<script>
+    function simpanPoliklinik(){
+        saveData('fPoliklinik',url,'Poliklinik','dgPoliklinik','dlPoliklinik');
+    }
+</script>
