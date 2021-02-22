@@ -1,0 +1,1 @@
+https://weasyprint.readthedocs.io/en/latest/install.html
