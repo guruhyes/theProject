@@ -3,7 +3,7 @@ from simrs.models.pasien import Penjab
 
 class formPenjab(forms.ModelForm):
     class Meta:
-        models = Penjab
+        model = Penjab
         fields =[
             'kd_pj',
             'png_jawab'

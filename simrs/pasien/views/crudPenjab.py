@@ -8,7 +8,7 @@ def index(request):
     context={
         "formPenjab":forms.formPenjab
     }
-    return render(request,'pasien/indexPasien.html',context)
+    return render(request,'pasien/indexPenjab.html',context)
 def deletePenjab(request):
     return jsonView.deleteRecord(Penjab,'kd_pj',request.POST['kd_pj'])
 def dgPenjab(request):
@@ -16,7 +16,7 @@ def dgPenjab(request):
     query_total = "select count(*) from penjab"
     query_data = "select * from penjab"
     kwargs={
-        "png_jawab":request.POST.get['cPng_jawab']
+        "png_jawab":request.POST.get('cPng_jawab')
     }
     return jsonView.datagridJson(sort_by,query_total,query_data,Penjab,request,tgl="",**kwargs)
 def simpanPenjab(request,id=None):

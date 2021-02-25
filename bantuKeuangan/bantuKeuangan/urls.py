@@ -19,5 +19,10 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('print/',views.print,name="weasyPrint")
+    path('print/',views.print,name="weasyPrint"),
+    path('exportExcel/',views.exportExcel,name="exportExcel"),
+    path('doc/',views.doc,name='doc'),
+    path('exportWord/',views.exportWord,name="exportWord"),
+    path('replaceWord/',views.replaceWord,name="replaceWord"),
+    path('doc_test/',views.doc_test,name="doc_test")
 ]
