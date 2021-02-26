@@ -16,13 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
+from . import views_gaji
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('print/',views.print,name="weasyPrint"),
-    path('exportExcel/',views.exportExcel,name="exportExcel"),
+    path('',views.index,name="index"),
+    path('gaji',views_gaji.index,name="gaji"),
     path('doc/',views.doc,name='doc'),
+    path('doc_test/',views.doc_test,name="doc_test"),
+    path('exportExcel/',views.exportExcel,name="exportExcel"),
     path('exportWord/',views.exportWord,name="exportWord"),
+    path('print/',views.print,name="weasyPrint"),
     path('replaceWord/',views.replaceWord,name="replaceWord"),
-    path('doc_test/',views.doc_test,name="doc_test")
 ]

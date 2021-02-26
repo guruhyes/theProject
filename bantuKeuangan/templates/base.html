@@ -24,7 +24,7 @@
                 data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
             });
         </script>
-
+        {% include 'menu.html' %}
         {% block Content %}
         {% endblock Content %}
 

@@ -1,0 +1,11 @@
+
+<div class="easyui-panel" style="padding:5px;">
+        <a href="#" class="easyui-linkbutton" data-options="plain:true">Home</a>
+        <a href="{% url 'gaji' %}" class="easyui-linkbutton" iconCls="icon-add" plain="true">Gaji</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-" plain="true" onclick="testF()">test</a>
+</div>
+<script>
+        function testF(){
+                var index = $('#tabGaji').tabs('select',1);
+        }
+</script>

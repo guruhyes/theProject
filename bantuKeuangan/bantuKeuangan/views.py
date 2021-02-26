@@ -16,7 +16,7 @@ import win32com.client
 #Import Model Siswa
 # Create your views here.
 def index(request):
-    pass
+    return render(request,'base.html')
 def print(request):
     # AllSiswa=SiswaModel.objects.all()
     # context = {
