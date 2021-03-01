@@ -7,7 +7,7 @@ from django.template.loader import render_to_string
 from weasyprint import HTML
 from datetime import datetime
 from datetime import timedelta
-from openpyxl import Workbook
+from openpyxl import Workbook,load_workbook
 from openpyxl.styles import Font, Alignment, Border, Side, PatternFill
 from openpyxl.worksheet.table import Table, TableStyleInfo
 from docx import Document
@@ -149,3 +149,5 @@ def doc_test(request):
     response["Content-Type"] = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
 
     return response
+
+

@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name="index"),
     path('gaji',views_gaji.index,name="gaji"),
+    path('generateExcel/<str:form>',views_gaji.generateExcel,name="generateExcel"),
     path('doc/',views.doc,name='doc'),
     path('doc_test/',views.doc_test,name="doc_test"),
     path('exportExcel/',views.exportExcel,name="exportExcel"),
