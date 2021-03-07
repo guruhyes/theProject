@@ -31,8 +31,8 @@
             </div>
         </div>
         <div title="03.">
-            <div id="p03" class="easyui-panel" data-options="footer:'#ft03'" style="width:700px;height:300px;padding:10px;">
-                Dokument 03
+            <div id="p03" class="easyui-panel" data-options="footer:'#ft03'" style="width:100%;height:600px;padding:10px;">
+                {% include 'gaji_form/form03.html' %}
                 
             </div>
             <div id="ft03">
@@ -142,14 +142,28 @@
         </iframe>
     </div>
     <script>
+        
         $('#tabGaji').tabs({
             onSelect:function(title,index){
                 if(index==11){
                     $('#tabGaji').tabs('select',index+1);
                     alert(index);
+                }else if(index==1){
+                    setForm02();
                 }
             }
         })
+        function setForm02(){
+            $('#id02JumlahKotor').numberbox('setValue',$('#idJumlahKotor').numberbox('getValue'));
+            $('#idTerbilang').textbox('setValue',terbilang(parseInt($('#idJumlahKotor').numberbox('getValue'))));
+            $('#id02BpjsKes').numberbox('setValue',$('#idBpjsKes1').numberbox('getValue'));
+            $('#id02Taspen').numberbox('setValue',$('#idTaspen').numberbox('getValue'));
+            $('#id02PPH').numberbox('setValue',$('#idPPH').numberbox('getValue'));
+            $('#id02Taperum').numberbox('setValue',$('#idTaperum').numberbox('getValue'));
+            $('#id02Askes').numberbox('setValue',$('#idAskes').numberbox('getValue'));
+            $('#id02JKK').numberbox('setValue',$('#idJKK').numberbox('getValue'));
+            $('#id02JKM').numberbox('setValue',$('#idJKM').numberbox('getValue'));
+        }
         function nextTabGaji(index){
             $('#tabGaji').tabs('select',index);
             var tab = $('#tabGaji').tabs('getSelected');
@@ -157,6 +171,8 @@
             if(i==11){
                 $('#tabGaji').tabs('select',index+1);
                 alert(i);
+            }else if(index==1){
+                setForm02();
             }
         }
         function previewFormGaji(){

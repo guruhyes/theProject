@@ -18,11 +18,21 @@
         
     <head>
 
-    <body>
+    <body onLoad="prepareDocument()">
         <script>
+            $(document).ready( function() {
+
+                $.messager.progress('close');
+            });
             $.ajaxSetup({
                 data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
             });
+            function prepareDocument(){
+                var win = $.messager.progress({
+                    title:'Please waiting',
+                    msg:'Loading data...'
+                });
+            }
         </script>
         {% include 'menu.html' %}
         {% block Content %}
