@@ -1,0 +1,119 @@
+<form id="fPerGol1" method="post">
+    <input class="easyui-textbox" label="Jumlah Gol 1" labelPosition="left" data-options="prompt:'jumlah'" id="id04JumlahGol1" name="nm04JumlahGol4" style="width:250px;">
+    <input class="easyui-numberbox" data-options="label:'Gaji Poko',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04GajiPokok1" name="nm04GajiPokok1">
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Keluarga',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganKeluarga1" name="nm04TunjanganKeluarga1"><br>
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Struktural',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganStruktural1" name="nm04TunjanganStruktural1">
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Fungsional',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganFungsional1" name="nm04TunjanganFungsional1">
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Umum',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganUmum1" name="nm04TunjanganUmum1"><br>
+    <input class="easyui-numberbox" data-options="label:'Tunjangan PPH',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganPPH1" name="nm04TunjanganPPH1">
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Beras',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganBeras1" name="nm04TunjanganBeras1">
+    <input class="easyui-numberbox" data-options="label:'Lain-Lain',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04Lain1" name="nm04Lain1"><br>
+    <input class="easyui-numberbox" data-options="label:'JKK',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04JKK1" name="nm04JKK1">
+    <input class="easyui-numberbox" data-options="label:'JKM',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04JKM1" name="nm04JKM1">
+    <input class="easyui-numberbox" data-options="label:'Gaji Kotor',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04GajiKotor1" name="nm04GajiKotor1">
+</form>
+<table id="dgPerGol1" title="Golongan 1" class="easyui-datagrid" style="width:100%;height:250px"
+        url="url"
+        toolbar="#btPerGol1" pagination="true"
+        rownumbers="true" fitColumns="true" singleSelect="true">
+    <thead>
+        <tr>
+            <th field="" width="50"></th>
+            <th field="" width="50"></th>
+        </tr>
+    </thead>
+</table>
+<div id="btPerGol1">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="kopi1()">kopi</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="klear1()">klear</a>
+</div>
+
+<form id="fPerGol2" method="post">
+    <input class="easyui-textbox" label="Jumlah Gol 2" labelPosition="left" data-options="prompt:'jumlah'" id="id04JumlahGol2" name="nm04JumlahGol2" style="width:250px;">
+    <input class="easyui-numberbox" data-options="label:'Gaji Poko',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04GajiPokok2" name="nm04GajiPokok2">
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Keluarga',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganKeluarga2" name="nm04TunjanganKeluarga2"><br>
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Struktural',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganStruktural2" name="nm04TunjanganStruktural2">
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Fungsional',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganFungsional2" name="nm04TunjanganFungsional2">
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Umum',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganUmum2" name="nm04TunjanganUmum2"><br>
+    <input class="easyui-numberbox" data-options="label:'Tunjangan PPH',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganPPH2" name="nm04TunjanganPPH2">
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Beras',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganBeras2" name="nm04TunjanganBeras2">
+    <input class="easyui-numberbox" data-options="label:'Lain-Lain',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04Lain2" name="nm04Lain2"><br>
+    <input class="easyui-numberbox" data-options="label:'JKK',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04JKK2" name="nm04JKK2">
+    <input class="easyui-numberbox" data-options="label:'JKM',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04JKM2" name="nm04JKM2">
+    <input class="easyui-numberbox" data-options="label:'Gaji Kotor',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04GajiKotor2" name="nm04GajiKotor2">
+</form>
+<table id="dgPerGol2" title="Golongan 2" class="easyui-datagrid" style="width:100%;height:250px"
+        url="url"
+        toolbar="#btPerGol2" pagination="true"
+        rownumbers="true" fitColumns="true" singleSelect="true">
+    <thead>
+        <tr>
+            <th field="" width="50"></th>
+            <th field="" width="50"></th>
+        </tr>
+    </thead>
+</table>
+<div id="btPerGol2">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="kopi2()">kopi</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="klear2()">klear</a>
+</div>
+
+<form id="fPerGol3" method="post">
+    <input class="easyui-textbox" label="Jumlah Gol 3" labelPosition="left" data-options="prompt:'jumlah'" id="id04JumlahGol3" name="nm04JumlahGol3" style="width:250px;">
+    <input class="easyui-numberbox" data-options="label:'Gaji Poko',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04GajiPokok3" name="nm04GajiPokok3">
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Keluarga',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganKeluarga3" name="nm04TunjanganKeluarga3"><br>
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Struktural',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganStruktural3" name="nm04TunjanganStruktural3">
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Fungsional',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganFungsional3" name="nm04TunjanganFungsional3">
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Umum',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganUmum3" name="nm04TunjanganUmum3"><br>
+    <input class="easyui-numberbox" data-options="label:'Tunjangan PPH',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganPPH3" name="nm04TunjanganPPH3">
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Beras',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganBeras3" name="nm04TunjanganBeras3">
+    <input class="easyui-numberbox" data-options="label:'Lain-Lain',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04Lain3" name="nm04Lain3"><br>
+    <input class="easyui-numberbox" data-options="label:'JKK',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04JKK3" name="nm04JKK3">
+    <input class="easyui-numberbox" data-options="label:'JKM',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04JKM3" name="nm04JKM3">
+    <input class="easyui-numberbox" data-options="label:'Gaji Kotor',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04GajiKotor3" name="nm04GajiKotor3">
+</form>
+<table id="dgPerGol3" title="Golongan 3" class="easyui-datagrid" style="width:100%;height:250px"
+        url="url"
+        toolbar="#btPerGol3" pagination="true"
+        rownumbers="true" fitColumns="true" singleSelect="true">
+    <thead>
+        <tr>
+            <th field="" width="50"></th>
+            <th field="" width="50"></th>
+        </tr>
+    </thead>
+</table>
+<div id="btPerGol3">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="kopi3()">kopi</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="klear3()">klear</a>
+</div>
+
+<form id="fPerGol4" method="post">
+    <input class="easyui-textbox" label="Jumlah Gol 4" labelPosition="left" data-options="prompt:'jumlah'" id="id04JumlahGol4" name="nm04JumlahGol4" style="width:250px;">
+    <input class="easyui-numberbox" data-options="label:'Gaji Poko',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04GajiPokok4" name="nm04GajiPokok4">
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Keluarga',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganKeluarga4" name="nm04TunjanganKeluarga4"><br>
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Struktural',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganStruktural4" name="nm04TunjanganStruktural4">
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Fungsional',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganFungsional4" name="nm04TunjanganFungsional4">
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Umum',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganUmum4" name="nm04TunjanganUmum4"><br>
+    <input class="easyui-numberbox" data-options="label:'Tunjangan PPH',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganPPH4" name="nm04TunjanganPPH4">
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Beras',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganBeras4" name="nm04TunjanganBeras4">
+    <input class="easyui-numberbox" data-options="label:'Lain-Lain',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04Lain4" name="nm04Lain4"><br>
+    <input class="easyui-numberbox" data-options="label:'JKK',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04JKK3" name="nm04JKK3">
+    <input class="easyui-numberbox" data-options="label:'JKM',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04JKM3" name="nm04JKM3">
+    <input class="easyui-numberbox" data-options="label:'Gaji Kotor',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04GajiKotor4" name="nm04GajiKotor4">
+</form>
+<table id="dgPerGol4" title="Golongan 4" class="easyui-datagrid" style="width:100%;height:250px"
+        url="url"
+        toolbar="#btPerGol4" pagination="true"
+        rownumbers="true" fitColumns="true" singleSelect="true">
+    <thead>
+        <tr>
+            <th field="" width="50"></th>
+            <th field="" width="50"></th>
+        </tr>
+    </thead>
+</table>
+<div id="btPerGol4">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="kopi4()">kopi</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="klear4()">klear</a>
+</div>

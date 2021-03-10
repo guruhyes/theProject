@@ -1,0 +1,34 @@
+<form id="fRealisasi" method="post">
+    <input class="easyui-textbox" label="Jumlah Gol 1" labelPosition="left" data-options="prompt:'Jumlah'" id="id04JumlahGol1R" name="nm04JumlahGol1R" style="width:250px;">
+    <input class="easyui-textbox" label="Jumlah Gol 2" labelPosition="left" data-options="prompt:'Jumlah'" id="id04JumlahGol2R" name="nm04JumlahGol2R" style="width:250px;">
+    <input class="easyui-textbox" label="Jumlah Gol 3" labelPosition="left" data-options="prompt:'Jumlah'" id="id04JumlahGol3R" name="nm04JumlahGol3R" style="width:250px;">
+    <input class="easyui-textbox" label="Jumlah Gol 4" labelPosition="left" data-options="prompt:'Jumlah'" id="id04JumlahGol4R" name="nm04JumlahGol4R" style="width:250px;">
+    <input class="easyui-numberbox" data-options="label:'Gaji Pokok',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04GajiPokokR" name="nm04GajiPokokR">
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Keluarga',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganKeluargaR" name="nm04TunjanganKeluargaR">
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Struktural',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganStrukturalR" name="nm04TunjanganStrukturalR">
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Fungsional',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganFungsionalR" name="nm04TunjanganFungsionalR">
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Umum',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganUmumR" name="nm04TunjanganUmumR">
+    <input class="easyui-numberbox" data-options="label:'Tunjangan PPH',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganPPHR" name="nm04TunjanganPPHR">
+    <input class="easyui-numberbox" data-options="label:'Tunjangan Beras',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04TunjanganBerasR" name="nm04TunjanganBerasR">
+    <input class="easyui-numberbox" data-options="label:'Lain-Lain',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04LainR" name="nm04LainR">
+    <input class="easyui-numberbox" data-options="label:'JKK',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04JKKR" name="nm04JKKR">
+    <input class="easyui-numberbox" data-options="label:'JKM',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04JMKR" name="nm04JKMR">
+    <input class="easyui-numberbox" data-options="label:'Gaji Kotor',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04GajiKotorR" name="nm04GajiKotorR">
+    
+</form>
+
+<table id="dgRealisasi" title="Realisasi" class="easyui-datagrid" style="width:100%;height:250px"
+        url="url"
+        toolbar="#btRealisasi" pagination="true"
+        rownumbers="true" fitColumns="true" singleSelect="true">
+    <thead>
+        <tr>
+            <th field="" width="50"></th>
+            <th field="" width="50"></th>
+        </tr>
+    </thead>
+</table>
+<div id="btRealisasi">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="kopiR()">kopi</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="clearR()">clear</a>
+</div>

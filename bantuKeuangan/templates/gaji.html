@@ -7,7 +7,7 @@
         <input class="easyui-datebox" label="bulanGaji" labelPosition="left" style="width:250px;">
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-new" plain="true" onclick="gajian()">new</a>
     </div>
-    <div class="easyui-tabs" id="tabGaji" style="width:100%;height:650px">
+    <div class="easyui-tabs" id="tabGaji" style="width:100%;height:auto">
         <div title="01." style="padding:10px">
             <div id="p01" class="easyui-panel" data-options="footer:'#ft01'" style="width:100%;height:600px;padding:10px;">
                 {% include 'gaji_form/form01.html' %}
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div title="03.">
-            <div id="p03" class="easyui-panel" data-options="footer:'#ft03'" style="width:100%;height:600px;padding:10px;">
+            <div id="p03" class="easyui-panel" data-options="footer:'#ft03'" style="width:100%;height:900px;padding:10px;">
                 {% include 'gaji_form/form03.html' %}
                 
             </div>
@@ -42,8 +42,8 @@
             </div>
         </div>
         <div title="04.">
-        <div id="p04" class="easyui-panel" data-options="footer:'#ft04'" style="width:700px;height:300px;padding:10px;">
-                Dokument 04
+        <div id="p04" class="easyui-panel" data-options="footer:'#ft04'" style="width:100%;height:auto;padding:10px;">
+                {% include 'gaji_form/form04.html' %}
                 
             </div>
             <div id="ft04">
