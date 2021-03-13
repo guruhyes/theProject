@@ -1,1 +1,5 @@
 https://weasyprint.readthedocs.io/en/latest/install.html
+
+windows 7 -  bisa pake universalconverter
+
+windows 8 keatas - ikuti per step dari url diatas

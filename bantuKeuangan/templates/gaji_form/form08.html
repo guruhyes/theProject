@@ -1,0 +1,13 @@
+<form id="fSuratPernyataanTanggungJawab" method="post">
+    <input class="easyui-numberbox" data-options="label:'Jumlah Kotor',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id08JumlahKotor" name="nm08JumlahKotor">
+    <input class="easyui-textbox" label="Terbilang" labelPosition="left" data-options="prompt:'Terbilang'" id="id08Terbilang" name="nm08Terbilang" style="width:400px;">
+    <input class="easyui-textbox" label="No SPM" labelPosition="left" data-options="prompt:'No SPM'" id="id08NoSpm" name="nm08NoSpm" style="width:300px;"><br>
+</form>
+
+<script>
+    $('#id08NoSpm').textbox({
+        onChange:function(ne,ol){
+            $('#id09NoSpm').textbox('setValue',ne);
+        }
+    })
+</script>

@@ -7,7 +7,7 @@
         <input class="easyui-datebox" label="bulanGaji" labelPosition="left" style="width:250px;">
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-new" plain="true" onclick="gajian()">new</a>
     </div>
-    <div class="easyui-tabs" id="tabGaji" style="width:100%;height:auto">
+    <div class="easyui-tabs" id="tabGaji" style="width:1300px;height:auto">
         <div title="01." style="padding:10px">
             <div id="p01" class="easyui-panel" data-options="footer:'#ft01'" style="width:100%;height:600px;padding:10px;">
                 {% include 'gaji_form/form01.html' %}
@@ -53,8 +53,8 @@
             </div>
         </div>
         <div title="05.">
-            <div id="p05" class="easyui-panel" data-options="footer:'#ft05'" style="width:700px;height:300px;padding:10px;">
-                Dokument 05
+            <div id="p05" class="easyui-panel" data-options="footer:'#ft05'" style="width:800px;height:auto;padding:10px;">
+                {% include 'gaji_form/form05.html' %}
                 
             </div>
             <div id="ft05">
@@ -65,7 +65,7 @@
         </div>
         <div title="06.">
             <div id="p06" class="easyui-panel" data-options="footer:'#ft06'" style="width:700px;height:300px;padding:10px;">
-                Dokument 06
+                {% include 'gaji_form/form06.html' %}
                 
             </div>
             <div id="ft06">
@@ -76,7 +76,7 @@
         </div>
         <div title="07.">
             <div id="p07" class="easyui-panel" data-options="footer:'#ft07'" style="width:700px;height:300px;padding:10px;">
-                Dokument 07
+                {% include 'gaji_form/form07.html' %}
                 
             </div>
             <div id="ft07">
@@ -87,7 +87,7 @@
         </div>
         <div title="08.">
             <div id="p08" class="easyui-panel" data-options="footer:'#ft08'" style="width:700px;height:300px;padding:10px;">
-                Dokument 08
+                {% include 'gaji_form/form08.html' %}
                 
             </div>
             <div id="ft08">
@@ -98,7 +98,7 @@
         </div>
         <div title="09.">
             <div id="p09" class="easyui-panel" data-options="footer:'#ft09'" style="width:700px;height:300px;padding:10px;">
-                Dokument 09
+                {% include 'gaji_form/form09.html' %}
                 
             </div>
             <div id="ft09">
@@ -150,6 +150,18 @@
                     alert(index);
                 }else if(index==1){
                     setForm02();
+                    
+                }else if (index==5){
+                    setForm06();
+                    console.log('te')
+                    
+                }else if(index==6){
+                    setForm07();
+                    
+                }else if(index==7){
+                    setForm08();
+                }else if(index==8){
+                    setForm09();
                 }
             }
         })
@@ -164,6 +176,23 @@
             $('#id02JKK').numberbox('setValue',$('#idJKK').numberbox('getValue'));
             $('#id02JKM').numberbox('setValue',$('#idJKM').numberbox('getValue'));
         }
+        function setForm06(){
+            $('#id06JumlahKotor').numberbox('setValue',$('#idJumlahKotor').numberbox('getValue'));
+            $('#id06Terbilang').textbox('setValue',terbilang(parseInt($('#idJumlahKotor').numberbox('getValue'))));
+        }
+        function setForm07(){
+            $('#id07JumlahKotor').numberbox('setValue',$('#idJumlahKotor').numberbox('getValue'));
+            $('#id07Terbilang').textbox('setValue',terbilang(parseInt($('#idJumlahKotor').numberbox('getValue'))));
+        }
+        function setForm08(){
+            $('#id08JumlahKotor').numberbox('setValue',$('#idJumlahKotor').numberbox('getValue'));
+            $('#id08Terbilang').textbox('setValue',terbilang(parseInt($('#idJumlahKotor').numberbox('getValue'))));
+        }
+        function setForm09(){
+            $('#id09JumlahKotor').numberbox('setValue',$('#idJumlahKotor').numberbox('getValue'));
+            $('#id09Terbilang').textbox('setValue',terbilang(parseInt($('#idJumlahKotor').numberbox('getValue'))));
+            $('#id09NoSpm').textbox('setValue',$('#id08NoSpm').textbox('getValue'));
+        }
         function nextTabGaji(index){
             $('#tabGaji').tabs('select',index);
             var tab = $('#tabGaji').tabs('getSelected');
@@ -173,6 +202,16 @@
                 alert(i);
             }else if(index==1){
                 setForm02();
+            }else if (index==5){
+                setForm06();
+                
+            }else if(index==6){
+                setForm07();
+                
+            }else if(index==7){
+                setForm08();
+            }else if(index=8){
+                setForm09();
             }
         }
         function previewFormGaji(){
