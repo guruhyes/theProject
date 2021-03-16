@@ -1,3 +1,4 @@
+
 <form id="fPerGol1" method="post">
     <input class="easyui-textbox" label="Jumlah Gol 1" labelPosition="left" data-options="prompt:'jumlah'" id="id04JumlahGol1" name="nm04JumlahGol4" style="width:250px;">
     <input class="easyui-numberbox" data-options="label:'Gaji Pokok',labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'250px'" id="id04GajiPokok1" name="nm04GajiPokok1">
@@ -15,11 +16,27 @@
 <table id="dgPerGol1" title="Golongan 1" class="easyui-datagrid" style="width:100%;height:250px"
         url="url"
         toolbar="#btPerGol1" pagination="true"
-        rownumbers="true" fitColumns="true" singleSelect="true">
+        rownumbers="true" fitColumns="true" singleSelect="true" nowrap="false" >
     <thead>
         <tr>
-            <th field="" width="50"></th>
-            <th field="" width="50"></th>
+            <th field="bulan" width="50" rowspan="2" halign="center">bulan</th>
+            <th field="jumlah" width="50" rowspan="2" halign="center">Jumlah<br>Gol 1</th>
+            <th field="Gapok" width="50" rowspan="2" halign="center">gapok</th>
+            <th field="tnj_keluarga" width="50" rowspan="2" halign="center">Tunjangan <br> Keluarga</th>
+            <th field="tnj_keluarga" colspan="2" width="50" halign="center">Tunjangan </th>
+            <th field="tnj_umum" width="50" rowspan="2" halign="center">Tunjangan<br>Umum</th>
+            <th field="tnj_pph" width="50" rowspan="2" halign="center">Tunjangan<br>PPH</th>
+            <th field="tnj_beras" width="50" rowspan="2" halign="center">Tunjangan<br>Beras</th>
+            <th field="lain" width="50" rowspan="2" halign="center">lain</th>
+            <th field="jkk" width="50" rowspan="2" halign="center">jkk</th>
+            <th field="jkm" width="50" rowspan="2" halign="center">jkm</th>
+            <th field="gator" width="50" rowspan="2" halign="center">Gaji Kotor</th>
+        </tr>
+        <tr>
+            
+            <th field="tnj_str" width="50" halign="center">Struktural</th>
+            <th field="tnj_fung" width="50" halign="center">Fungsional</th>
+            
         </tr>
     </thead>
 </table>
@@ -48,8 +65,24 @@
         rownumbers="true" fitColumns="true" singleSelect="true">
     <thead>
         <tr>
-            <th field="" width="50"></th>
-            <th field="" width="50"></th>
+            <th field="bulan" width="50" rowspan="2" halign="center">bulan</th>
+            <th field="jumlah" width="50" rowspan="2" halign="center">Jumlah<br>Gol 1</th>
+            <th field="Gapok" width="50" rowspan="2" halign="center">gapok</th>
+            <th field="tnj_keluarga" width="50" rowspan="2" halign="center">Tunjangan <br> Keluarga</th>
+            <th field="tnj_keluarga" colspan="2" width="50" halign="center">Tunjangan </th>
+            <th field="tnj_umum" width="50" rowspan="2" halign="center">Tunjangan<br>Umum</th>
+            <th field="tnj_pph" width="50" rowspan="2" halign="center">Tunjangan<br>PPH</th>
+            <th field="tnj_beras" width="50" rowspan="2" halign="center">Tunjangan<br>Beras</th>
+            <th field="lain" width="50" rowspan="2" halign="center">lain</th>
+            <th field="jkk" width="50" rowspan="2" halign="center">jkk</th>
+            <th field="jkm" width="50" rowspan="2" halign="center">jkm</th>
+            <th field="gator" width="50" rowspan="2" halign="center">Gaji Kotor</th>
+        </tr>
+        <tr>
+            
+            <th field="tnj_str" width="50" halign="center">Struktural</th>
+            <th field="tnj_fung" width="50" halign="center">Fungsional</th>
+            
         </tr>
     </thead>
 </table>
@@ -78,8 +111,24 @@
         rownumbers="true" fitColumns="true" singleSelect="true">
     <thead>
         <tr>
-            <th field="" width="50"></th>
-            <th field="" width="50"></th>
+            <th field="bulan" width="50" rowspan="2" halign="center">bulan</th>
+            <th field="jumlah" width="50" rowspan="2" halign="center">Jumlah<br>Gol 1</th>
+            <th field="Gapok" width="50" rowspan="2" halign="center">gapok</th>
+            <th field="tnj_keluarga" width="50" rowspan="2" halign="center">Tunjangan <br> Keluarga</th>
+            <th field="tnj_keluarga" colspan="2" width="50" halign="center">Tunjangan </th>
+            <th field="tnj_umum" width="50" rowspan="2" halign="center">Tunjangan<br>Umum</th>
+            <th field="tnj_pph" width="50" rowspan="2" halign="center">Tunjangan<br>PPH</th>
+            <th field="tnj_beras" width="50" rowspan="2" halign="center">Tunjangan<br>Beras</th>
+            <th field="lain" width="50" rowspan="2" halign="center">lain</th>
+            <th field="jkk" width="50" rowspan="2" halign="center">jkk</th>
+            <th field="jkm" width="50" rowspan="2" halign="center">jkm</th>
+            <th field="gator" width="50" rowspan="2" halign="center">Gaji Kotor</th>
+        </tr>
+        <tr>
+            
+            <th field="tnj_str" width="50" halign="center">Struktural</th>
+            <th field="tnj_fung" width="50" halign="center">Fungsional</th>
+            
         </tr>
     </thead>
 </table>
@@ -108,8 +157,24 @@
         rownumbers="true" fitColumns="true" singleSelect="true">
     <thead>
         <tr>
-            <th field="" width="50"></th>
-            <th field="" width="50"></th>
+            <th field="bulan" width="50" rowspan="2" halign="center">bulan</th>
+            <th field="jumlah" width="50" rowspan="2" halign="center">Jumlah<br>Gol 1</th>
+            <th field="Gapok" width="50" rowspan="2" halign="center">gapok</th>
+            <th field="tnj_keluarga" width="50" rowspan="2" halign="center">Tunjangan <br> Keluarga</th>
+            <th field="tnj_keluarga" colspan="2" width="50" halign="center">Tunjangan </th>
+            <th field="tnj_umum" width="50" rowspan="2" halign="center">Tunjangan<br>Umum</th>
+            <th field="tnj_pph" width="50" rowspan="2" halign="center">Tunjangan<br>PPH</th>
+            <th field="tnj_beras" width="50" rowspan="2" halign="center">Tunjangan<br>Beras</th>
+            <th field="lain" width="50" rowspan="2" halign="center">lain</th>
+            <th field="jkk" width="50" rowspan="2" halign="center">jkk</th>
+            <th field="jkm" width="50" rowspan="2" halign="center">jkm</th>
+            <th field="gator" width="50" rowspan="2" halign="center">Gaji Kotor</th>
+        </tr>
+        <tr>
+            
+            <th field="tnj_str" width="50" halign="center">Struktural</th>
+            <th field="tnj_fung" width="50" halign="center">Fungsional</th>
+            
         </tr>
     </thead>
 </table>

@@ -6,7 +6,9 @@
     <div id="pBulanGaji" class="easyui-panel" style="width:700px;height:00px;padding:10px;">
         <input class="easyui-datebox" label="bulanGaji" labelPosition="left" style="width:250px;">
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-new" plain="true" onclick="gajian()">new</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-new" plain="true" onclick="templateGaji()">Template</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-new" plain="true" onclick="templateGaji()">Template</a><br>
+        <input class="easyui-textbox" required="true" label="Judul Gaji" labelPosition="left" data-options="prompt:'Judul Gaji'" id="idJudulGaji" name="nmJudulGaji" style="width:250px;">
+    <input class="easyui-datebox" required="true" label="Tanggal" labelPosition="left" id="idTanggal" name="nmTanggal" style="width:250px;"><br> 
     </div>
         {% include 'template_gaji.html' %}
     <div class="easyui-tabs" id="tabGaji" style="width:1300px;height:auto">
@@ -111,7 +113,7 @@
         </div>
         <div title="10.">
             <div id="p10" class="easyui-panel" data-options="footer:'#ft10'" style="width:700px;height:300px;padding:10px;">
-                Dokument 10
+                {% include 'gaji_form/form10.html' %}
                 
             </div>
             <div id="ft10">

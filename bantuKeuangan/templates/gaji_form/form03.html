@@ -25,6 +25,7 @@
         <input class="easyui-textbox" readonly="true" value="0" label="Jumlah" labelPosition="left" data-options="prompt:'Jumlah'" id="id03JumlahFungsionalOrang" name="nm03JumlahFungsionalOrang" style="width:150px;" labelWidth="100"> Orang ==
         <input class="easyui-numberbox" readonly="true" data-options="labelPosition:'left',precision:2,groupSeparator:'.',decimalSeparator:',',prefix:'Rp ',width:'200px'"  id="id03TotalFungsional" name=="nm03TotalFungsional" ><br>
     </div>
+</form>
     <br>
     <div id="pGaji">
         <h3> <center>Perbandingan Gaji</center> </h3>
@@ -37,8 +38,11 @@
                             rownumbers="true" fitColumns="true" singleSelect="true">
                         <thead>
                             <tr>
-                                <th field="" width="50"></th>
-                                <th field="" width="50"></th>
+                                <th field="pegawai" width="50">Pegawai</th>
+                                <th field="istri" width="50">Istri</th>
+                                <th field="anak" width="50">Anak</th>
+                                <th field="jiwa" width="50">Jiwa</th>
+                                <th field="jumlah" width="50">jumlah</th>
                             </tr>
                         </thead>
                     </table>
@@ -50,8 +54,11 @@
                             rownumbers="true" fitColumns="true" singleSelect="true">
                         <thead>
                             <tr>
-                                <th field="" width="50"></th>
-                                <th field="" width="50"></th>
+                                <th field="pegawai" width="50">Pegawai</th>
+                                <th field="istri" width="50">Istri</th>
+                                <th field="anak" width="50">Anak</th>
+                                <th field="jiwa" width="50">Jiwa</th>
+                                <th field="jumlah" width="50">jumlah</th>
                             </tr>
                         </thead>
                     </table>
@@ -68,8 +75,16 @@
                 rownumbers="true" fitColumns="true" singleSelect="true">
             <thead>
                 <tr>
-                    <th field="" width="50"></th>
-                    <th field="" width="50"></th>
+                    <th field="no" width="50">no</th>
+                    <th field="nama" width="50">Nama</th>
+                    <th field="nip" width="50">NIP</th>
+                    <th field="kp" width="50">kp</th>
+                    <th field="kgb" width="50">kgb</th>
+                    <th field="t_ist" width="50">T.Ist</th>
+                    <th field="t_an" width="50">T.An</th>
+                    <th field="pindah" width="50">Pindah</th>
+                    <th field="pensiun" width="50">Pensiun</th>
+                    <th field="keterangan" width="50">Keterangan</th>
                 </tr>
             </thead>
         </table>
@@ -80,7 +95,7 @@
             <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-clear" plain="true" onclick="clearLampiran()">Clear</a>
         </div>
     </div>
-</form>
+
 
 <script>
 

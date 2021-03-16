@@ -16,24 +16,35 @@
         <script type="text/javascript" src="{% static 'jquery.easyui.mobile.js' %}"></script>
         <script type="text/javascript" src="{% static 'customJS.js' %}"></script>
         
+        
     <head>
 
     <body onLoad="prepareDocument()">
+        
         <script>
             $(document).ready( function() {
 
-                $.messager.progress('close');
+                $('#dlLoading').dialog('close');
             });
             $.ajaxSetup({
                 data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
             });
             function prepareDocument(){
-                var win = $.messager.progress({
-                    title:'Please waiting',
-                    msg:'Loading data...'
+                $('#dlLoading').dialog({
+                    title: 'Please Wait',
+                    width: 200,
+                    height: 100,
+                    closed: false,
+                    cache: false,
+                    modal: true,
+                    closable:false
                 });
+                $('#dlLoading').dialog('open');
             }
         </script>
+        <div id="dlLoading">Loading ....
+            
+        </div>
         {% include 'menu.html' %}
         {% block Content %}
         {% endblock Content %}
